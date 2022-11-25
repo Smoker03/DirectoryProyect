@@ -1,6 +1,6 @@
 package Main;
 
-import java.util.HashMap;
+import java.util.ArrayList;
 import java.util.Map;
 import java.io.BufferedWriter;
 import java.io.FileWriter;
@@ -10,10 +10,50 @@ import java.util.Scanner;
 public class Directory {
     protected String name;
     protected String phoneNumber;
-    protected final HashMap<String, String> directory = new HashMap<>();
-
+    protected final ArrayList<ContactInfo> listContactInfo = new ArrayList();
     protected final static String path = "data.txt";
-    Scanner tc = new Scanner(System.in);
+    public boolean addContact(Object obj) {
+
+        RegularContact contact   = new RegularContact();
+        BusinessContact bContact = new BusinessContact();
+        PrivateContact  pContact = new PrivateContact();
+
+
+
+
+
+        boolean result = false;
+
+
+        name = addName;
+        if (name != null) {
+            Directory.add(name);
+            result = true;
+        } else {
+            BufferedWriter bf = null;
+            try {
+                bf = new BufferedWriter(new FileWriter(path));
+                for (Object i : Directory) {
+                    System.out.println(i);
+                    bf.write((Integer) Directory.get((Integer) i));
+                    bf.newLine();
+                }
+                bf.flush();
+            } catch (IOException e) {
+                e.printStackTrace();
+            } finally {
+                try {
+                    assert bf != null;
+                    bf.close();
+                } catch (Exception e) {
+                }
+            }
+        }
+        return result;
+    }
+
+
+
     public String typeofContact(){
         System.out.print("Ingrese el tipo de contacto: ");
         String typeContact = tc.nextLine();

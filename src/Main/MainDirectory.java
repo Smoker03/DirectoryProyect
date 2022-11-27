@@ -1,30 +1,42 @@
 package Main;
 
+import java.io.IOException;
+import java.util.concurrent.Semaphore;
+
 public class MainDirectory {
-    public static void main(String[] args) {
+    public static void main(String[] args) throws IOException {
         Directory phoneDirectory = new Directory();
-        System.out.println("Añadiendo contactos...\n");
-        phoneDirectory.typeofContact();
-        phoneDirectory.addContactInformation("Jose Camino", "0998870364");
-        phoneDirectory.addContactInformation("Maria Fernanda", "0987186569");
-        phoneDirectory.addContactInformation("Luis Suarez", "0998856435");
-        phoneDirectory.addContactInformation("Martha Pilco", "0998856324");
-        phoneDirectory.addContactInformation("Herique Chavez", "0998856438");
+        System.out.println("Adding contacts...");
 
+        var juan = new RegularContact("Juan", "Bentancur", "0987182565");
+        var pedro = new PrivateContact("Pedro", "Bentancur", "0987654839");
+        var oscar = new BusinessContact("Oscar", "Bentancur", "09723982342", "El Titanic del Sabor");
 
+        phoneDirectory.addContact(juan);
+        phoneDirectory.addContact(pedro);
+        phoneDirectory.addContact(oscar);
 
-        phoneDirectory.displayDirectory();
-        System.out.println();
-        phoneDirectory.replaceInformationContact("Maria Fernanda","0995689745");
-        System.out.println();
-        phoneDirectory.displayDirectory();
-        System.out.println();
-        phoneDirectory.searchNumberbyName("Jose Camino");
-        System.out.println();
-        phoneDirectory.displayDirectory();
-        System.out.println();
-        phoneDirectory.deleteContact("Martha Pilco");
-        System.out.println();
-        phoneDirectory.displayDirectory();
+        for (var contact : phoneDirectory.getContacts()) {
+            System.out.println(contact);
+        }
+
+        System.out.println("--------------------");
+        var foundContactsbyName = phoneDirectory.searchContactsbyName("J");
+        if (foundContactsbyName.size() == 0) {
+            System.out.println("No contacts found");
+        } else {
+            for (var contact : foundContactsbyName) {
+                System.out.println(contact);
+            }
+        }
+        System.out.println("--------------------");
+        var foundContactsbyPhoneNumber = phoneDirectory.searchContactsbyPhoneNumber("25");
+        if (foundContactsbyPhoneNumber.size() == 0) {
+            System.out.println("No contacts found");
+        } else {
+            for (var contact : foundContactsbyPhoneNumber) {
+                System.out.println(contact);
+            }
+        }
     }
 }

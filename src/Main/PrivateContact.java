@@ -1,13 +1,11 @@
 package Main;
 
-import java.util.ArrayList;
-
 public class PrivateContact extends Contact {
-    public PrivateContact(String firstName, String lastName, String phoneNumber){
-        super(firstName, lastName, phoneNumber);
+    public PrivateContact(String typeContact, String firstName, String lastName, String phoneNumber){
+        super(typeContact, firstName, lastName, phoneNumber);
     }
     @Override
     public String toString() {
-        return "* Nombre = " + firstName + " | Apellido = " + lastName + " | Numero = " + phoneNumber;
+        return typeContact + " Nombre = " + firstName + " | Apellido = " + lastName + " | Numero = " + phoneNumber;
     }
 }

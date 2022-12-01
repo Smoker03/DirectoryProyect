@@ -2,3 +2,6 @@
 * Nombre = Pedro | Apellido = Canizares | Numero = 0987654839
 $ Nombre = Oscar | Apellido = Ramirez | Numero = 09723982342 | Negocio = El Titanic del Sabor
 - Nombre = Patricio | Apellido = Jimenez | Numero = 0987458435
+* Nombre = Martha | Apellido = Corrales | Numero = 0987568412
+$ Nombre = Hernesto | Apellido = Herrera | Numero = 0987453165 | Negocio = GAB Motors S.A
+- Nombre = Pablo | Apellido = Alvarez | Numero = 0985302091

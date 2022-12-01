@@ -1,13 +1,13 @@
 package Main;
 
+import javax.swing.*;
 import java.io.*;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Directory {
+public class Directory{
     private final ArrayList<Contact> contacts = new ArrayList<>();
     private final static String path = "data.txt";
-
     public ArrayList<Contact> getContacts() {
         return this.contacts;
     }
@@ -15,6 +15,7 @@ public class Directory {
         return contacts.add(contact);
     }
     public boolean deleteContact(Contact contact) {
+        System.out.println("Contact " +contact.firstName+ " deleted");
         return contacts.remove(contact);
     }
     public List<Contact> searchContactsbyName(String query) {

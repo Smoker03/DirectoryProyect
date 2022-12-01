@@ -12,13 +12,11 @@ public abstract class Contact {
     }
 
     public abstract String toString();
+
     public boolean matchbyName(String query){
         return this.firstName.contains(query) || this.lastName.contains(query);
     }
     public boolean matchbyPhoneNumber(String query){
         return this.phoneNumber.contains(query);
-    }
-    private String name() {
-        return this.firstName + " " + this.lastName;
     }
 }

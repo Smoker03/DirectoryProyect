@@ -1,21 +1,21 @@
 package Main;
 
 import java.io.IOException;
-import java.util.concurrent.Semaphore;
-
 public class MainDirectory {
     public static void main(String[] args) throws IOException {
         Directory phoneDirectory = new Directory();
         System.out.println("Adding contacts...");
-
+//records
         var juan = new RegularContact("Juan", "Bentancur", "0987182565");
-        var pedro = new PrivateContact("Pedro", "Bentancur", "0987654839");
-        var oscar = new BusinessContact("Oscar", "Bentancur", "09723982342", "El Titanic del Sabor");
+        var pedro = new PrivateContact("Pedro", "Canizares", "0987654839");
+        var oscar = new BusinessContact("Oscar", "Ramirez", "09723982342", "El Titanic del Sabor");
+        var patricio = new RegularContact("Patricio", "Jimenez", "0987458435");
 
         phoneDirectory.addContact(juan);
         phoneDirectory.addContact(pedro);
         phoneDirectory.addContact(oscar);
-
+        phoneDirectory.addContact(patricio);
+        phoneDirectory.writetoFile();
         for (var contact : phoneDirectory.getContacts()) {
             System.out.println(contact);
         }

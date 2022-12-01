@@ -8,6 +8,6 @@ public class PrivateContact extends Contact {
     }
     @Override
     public String toString() {
-        return String.join(" ", "* ", this.lastName, this.firstName);
+        return "* Nombre = " + firstName + " | Apellido = " + lastName + " | Numero = " + phoneNumber;
     }
 }

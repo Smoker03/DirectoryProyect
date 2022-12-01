@@ -1,1 +1,4 @@
-- Jose Camino: 0998870364
+- Nombre = Juan | Apellido = Bentancur | Numero = 0987182565
+* Nombre = Pedro | Apellido = Canizares | Numero = 0987654839
+$ Nombre = Oscar | Apellido = Ramirez | Numero = 09723982342 | Negocio = El Titanic del Sabor
+- Nombre = Patricio | Apellido = Jimenez | Numero = 0987458435

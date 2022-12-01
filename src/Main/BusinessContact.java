@@ -10,6 +10,6 @@ public class BusinessContact extends Contact {
     }
     @Override
     public String toString() {
-        return String.join(" ", "$ ", this.lastName, this.firstName, this.phoneNumber, this.businessName);
+        return "$ Nombre = " + firstName + " | Apellido = " + lastName + " | Numero = " + phoneNumber + " | Negocio = " +businessName;
     }
 }

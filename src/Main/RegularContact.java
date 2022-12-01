@@ -6,6 +6,6 @@ public class RegularContact extends Contact {
     }
     @Override
     public String toString() {
-        return String.join(" ", "+ ", this.lastName, this.firstName, this.phoneNumber);
+        return "- Nombre = " + firstName + " | Apellido = " + lastName + " | Numero = " + phoneNumber;
     }
 }

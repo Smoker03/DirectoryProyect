@@ -5,14 +5,12 @@ import java.util.ArrayList;
 
 public class BusinessContact extends Contact {
     private String businessName;
-    public BusinessContact(String firstName){
-        super(firstName);
-    }
+
+    public BusinessContact(){}
     public BusinessContact(String firstName, String lastName, String phoneNumber, String businessName){
         super(firstName, lastName, phoneNumber);
         this.businessName = businessName;
     }
-    public BusinessContact(){}
     public String getBusinessName() {
         return businessName;
     }

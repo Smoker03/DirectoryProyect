@@ -3,7 +3,6 @@ package Main;
 import javax.swing.JOptionPane;
 import java.io.*;
 import java.util.ArrayList;
-import java.util.Comparator;
 import java.util.List;
 import java.util.Objects;
 
@@ -13,83 +12,74 @@ public class Directory{
     public ArrayList<Contact> getContacts() {
         return this.contacts;
     }
+
     public void addContacts() {
+        var regularContact = new RegularContact();
+        var privateContact = new PrivateContact();
+        var businessContact = new BusinessContact();
 
-        var contact = new Contact() {
-            @Override
-            public String toString() {
-                return null;
+        String typeContact = (JOptionPane.showInputDialog(null, "Ingrese el tipo de contacto: "));
+        switch (typeContact) {
+            case "regular", "Regular", "regular contact", "Regular contact" -> {
+                regularContact.setFirstName(JOptionPane.showInputDialog(null, "Ingrese el nombre del contacto regular: "));
+                regularContact.setLastName(JOptionPane.showInputDialog(null, "Ingrese el apellido del contacto regular: "));
+                regularContact.setPhoneNumber(JOptionPane.showInputDialog(null, "Ingrese el numero del contacto regular: "));
+                contacts.add(regularContact);
             }
-        };
-        var bussinescontact = new BusinessContact();
-
-        contact.setTypeContact(JOptionPane.showInputDialog(null, "Ingrese el tipo de contacto: "));
-        switch (contact.getTypeContact()) {
-            case "regular" -> {
-                contact.setFirstName(JOptionPane.showInputDialog(null, "Ingrese el nombre del contacto regular: "));
-                contact.setLastName(JOptionPane.showInputDialog(null, "Ingrese el apellido del contacto regular: "));
-                contact.setPhoneNumber(JOptionPane.showInputDialog(null, "Ingrese el numero del contacto regular: "));
-                var rc = new RegularContact(contact.getFirstName(), contact.getLastName(), contact.getPhoneNumber());
-                contacts.add(rc);
+            case "private", "Private", "private contact", "Private contact" -> {
+                privateContact.setFirstName(JOptionPane.showInputDialog(null, "Ingrese el nombre del contacto privado: "));
+                privateContact.setLastName(JOptionPane.showInputDialog(null, "Ingrese el apellido del contacto privado: "));
+                privateContact.setPhoneNumber(JOptionPane.showInputDialog(null, "Ingrese el numero del contacto privado: "));
+                contacts.add(privateContact);
             }
-            case "private" -> {
-                contact.setFirstName(JOptionPane.showInputDialog(null, "Ingrese el nombre del contacto privado: "));
-                contact.setLastName(JOptionPane.showInputDialog(null, "Ingrese el apellido del contacto privado: "));
-                contact.setPhoneNumber(JOptionPane.showInputDialog(null, "Ingrese el numero del contacto privado: "));
-                var pc = new PrivateContact(contact.getFirstName(), contact.getLastName(), contact.getPhoneNumber());
-                contacts.add(pc);
-            }
-            case "business" -> {
-                contact.setFirstName(JOptionPane.showInputDialog(null, "Ingrese el nombre del contacto de negocios: "));
-                contact.setLastName(JOptionPane.showInputDialog(null, "Ingrese el apellido del contacto de negocios: "));
-                contact.setPhoneNumber(JOptionPane.showInputDialog(null, "Ingrese el numero del contacto de negocios: "));
-                bussinescontact.setBusinessName(JOptionPane.showInputDialog(null, "Ingrese el nombre del negocio: "));
-                var bc = new BusinessContact(contact.getFirstName(), contact.getLastName(), contact.getPhoneNumber(), bussinescontact.getBusinessName());
-                contacts.add(bc);
+            case "business", "Business", "business contact", "Business contact" -> {
+                businessContact.setFirstName(JOptionPane.showInputDialog(null, "Ingrese el nombre del contacto de negocios: "));
+                businessContact.setLastName(JOptionPane.showInputDialog(null, "Ingrese el apellido del contacto de negocios: "));
+                businessContact.setPhoneNumber(JOptionPane.showInputDialog(null, "Ingrese el numero del contacto de negocios: "));
+                businessContact.setBusinessName(JOptionPane.showInputDialog(null, "Ingrese el nombre del negocio: "));
+                contacts.add(businessContact);
             }
             default -> System.out.println("El tipo de contacto esta incorrecto");
         }
     }
-//    public boolean deleteContactbyName(){
-//
-//        var contact = new Contact() {
-//            @Override
-//            public String toString() {
-//                return this.firstName;
-//            }
-//        };
-//
-//        String contfirstname = JOptionPane.showInputDialog(null, "Ingrese el contacto que desea eliminar");
-//        if(contacts.contains(contfirstname)){
-//            contacts.remove(addContacts().);
-//        }
-//        contact.setFirstName(JOptionPane.showInputDialog(null, "Ingrese el contacto que desea eliminar"));
-//
-//
-//        contact.setFirstName(JOptionPane.showInputDialog(null, "Ingrese el contacto que desea eliminar"));
-//        Comparator<Contact> firstNameComparator = Comparator.comparing(Contact :: getFirstName);
-//
-//        ArrayList<Contact> templist = new ArrayList<>();
-//        templist.sort(firstNameComparator);
-//        System.out.println(templist);
-//
-//        System.out.println(firstNameComparator.toString());
-//
-//            return contacts.removeIf(p -> contacts.contains(contact.getFirstName()));
-//    }
-    public String setPasswordtoPrivateContact(){
-        return (JOptionPane.showInputDialog(null, "Establezca una nueva contraseña para los contactos privados"));
-    }
-    public void showPrivateContacts(){
-        var psws = setPasswordtoPrivateContact();
-        String userpw= JOptionPane.showInputDialog(null, "Ingrese la contraseña de los contactos privados");
-        if(psws.equals(userpw)){
-            Comparator<Contact> cptc = Comparator.comparing(Contact :: getFirstName);
-            ArrayList<Contact> templist = new ArrayList<>();
-            templist.sort(cptc);
-            System.out.println(templist);
-        }else {
-            System.out.println("Contraseña incorrecta");
+    public void deletedContact(){
+        var businessContact = new BusinessContact();
+        var regularContact = new RegularContact();
+        var privateContact = new PrivateContact();
+        ArrayList<Contact> fList = new ArrayList<>();
+
+        String nametoDeleted = JOptionPane.showInputDialog(null, "Ingrese el tipo de contacto que desea eliminar");
+        switch (nametoDeleted) {
+            case "Regular contact", "regular contact", "Regular", "regular" -> {
+                regularContact.setFirstName(JOptionPane.showInputDialog(null, "Ingrese el contacto que desea eliminar: "));
+                for( Contact a : contacts) {
+                    if (a.getFirstName().equals(regularContact.getFirstName())) {
+                        fList.add(a);
+                    }
+                }
+                contacts.remove(fList.get(0));
+                fList.clear();
+            }
+            case "Private contact", "private contact", "Private", "private" -> {
+                privateContact.setFirstName(JOptionPane.showInputDialog(null, "Ingrese el contacto que desea eliminar: "));
+                for( Contact a : contacts) {
+                    if (a.getFirstName().equals(privateContact.getFirstName())) {
+                        fList.add(a);
+                    }
+                }
+                contacts.remove(fList.get(0));
+                fList.clear();
+            }
+            case "Business contact", "business contact", "Business", "business" -> {
+                businessContact.setFirstName(JOptionPane.showInputDialog(null, "Ingrese el contacto que desea eliminar: "));
+                for( Contact a : contacts) {
+                    if (a.getFirstName().equals(businessContact.getFirstName())) {
+                        fList.add(a);
+                    }
+                }
+                contacts.remove(fList.get(0));
+                fList.clear();
+            }
         }
     }
     public List<Contact> searchContactsbyName(String query) {

@@ -5,8 +5,8 @@ public abstract class Contact {
     protected String firstName;
     protected String lastName;
     protected String phoneNumber;
-
-    protected String csvDelimeter = ",";
+    protected String csvDelimiter = ",";
+    protected String [] query;
 
     public Contact() {
     }
@@ -50,7 +50,12 @@ public abstract class Contact {
     }
 
     public boolean matchByName(String query){
-        return this.firstName.contains(query) || this.lastName.contains(query);
+        this.query = query.split(" ");
+        if(this.query.length == 2 ){
+            return this.firstName.equals(this.query[0]) && this.lastName.equals(this.query[1]);
+        }else{
+            return this.firstName.equals(this.query[0]);
+        }
     }
 
     public boolean searchByPhone(String query){

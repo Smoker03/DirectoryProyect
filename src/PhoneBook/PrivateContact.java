@@ -1,6 +1,7 @@
 package PhoneBook;
 
 public class PrivateContact extends Contact {
+    private static final String IDENTIFIER = "*";
     public PrivateContact() {
     }
 
@@ -15,6 +16,6 @@ public class PrivateContact extends Contact {
 
     @Override
     public String toCSV() {
-        return String.join(csvDelimeter, "*", firstName, lastName, phoneNumber);
+        return String.join(csvDelimiter, IDENTIFIER, firstName, lastName, phoneNumber);
     }
 }

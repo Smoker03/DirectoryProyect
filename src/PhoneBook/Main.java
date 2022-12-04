@@ -11,8 +11,6 @@ public class Main {
         var reader = new DirectoryReader("contacts.txt");
         var phoneDirectory = reader.read();
 
-        PrivateContact pc = new PrivateContact();
-
         // Enjoy!
         phoneDirectory.getContacts().stream().map(contact -> contact.toCSV()).forEach(System.out::println);
 
@@ -70,11 +68,9 @@ public class Main {
                 System.out.println(contact);
             }
         }
-        String addData =(JOptionPane.showInputDialog(null, "Desea agragar los datos a un archivo de texto?"));
-        if (addData.equals("y") || addData.equals("y")){
-            var writer = new DirectoryWriter(phoneDirectory, "contacts.txt");
-            writer.write();
-        }
+
+        var writer = new DirectoryWriter(phoneDirectory, "contacts.txt");
+        writer.write();
     }
 
     private static void addContacts(Directory phoneDirectory) {

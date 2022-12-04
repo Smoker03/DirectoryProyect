@@ -17,6 +17,6 @@ public class RegularContact extends Contact {
 
     @Override
     public String toCSV() {
-        return String.join(csvDelimeter, IDENTIFIER, firstName, lastName, phoneNumber);
+        return String.join(csvDelimiter, IDENTIFIER, firstName, lastName, phoneNumber);
     }
 }

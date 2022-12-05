@@ -14,6 +14,7 @@ public class DirectoryWriter {
         this.path = path;
     }
 
+    //Method to write the data stored in the ArrayList into a text file
     public void write() throws IOException {
         BufferedWriter ous = new BufferedWriter(new FileWriter(this.path, false));
         var content = this.directory.getContacts()

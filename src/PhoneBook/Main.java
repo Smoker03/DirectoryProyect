@@ -63,7 +63,7 @@ public class Main {
                 //Screen to delete a contact
                 var renderD = new DeleteScreen(phoneDirectory);
                 //Method to delete a contact
-                renderD.renderDeletContacts();
+                renderD.renderDeleteContacts();
             }
             case 2 -> {
                 //Screen to search a contact

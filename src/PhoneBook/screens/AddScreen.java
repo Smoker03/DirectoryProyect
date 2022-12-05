@@ -17,7 +17,7 @@ public class AddScreen {
 
     public void renderAddContact(Directory directory){
         this.directory = directory;
-        //Show a list to choose in a panel JOptionPane
+        //Show a list to choose in a panel of JOptionPane
         String[] typeContact = new String[3];
         typeContact[0] = "Regular";
         typeContact[1] = "Privado";
@@ -30,7 +30,7 @@ public class AddScreen {
                                                                                         typeContact,
                                                                         "Regular");
         //Setting a switch to create a new Contact depends on the contact selected
-        switch (selectedTypeContact) {
+         switch (selectedTypeContact) {
             case "Regular" -> {
                 var firstName = JOptionPane.showInputDialog(null, "Ingrese el nombre del contacto regular: ");
                 var lastName = JOptionPane.showInputDialog(null, "Ingrese el apellido del contacto regular: ");

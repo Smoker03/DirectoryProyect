@@ -12,6 +12,7 @@ public class DirectoryReader {
         this.path = Path.of(path);
     }
 
+    //Method to read the data stored into the file text
     public Directory read() throws IOException {
         var directory = new Directory();
         var rawContacts = Files.lines(path);

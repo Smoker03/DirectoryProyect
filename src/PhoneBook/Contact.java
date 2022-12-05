@@ -1,7 +1,6 @@
 package PhoneBook;
 
 public abstract class Contact {
-    protected String typeContact;
     protected String firstName;
     protected String lastName;
     protected String phoneNumber;
@@ -17,39 +16,21 @@ public abstract class Contact {
         this.phoneNumber = phoneNumber;
     }
 
-    public String getTypeContact() {
-        return typeContact;
-    }
-
-    public void setTypeContact(String typeContact) {
-        this.typeContact = typeContact;
-    }
-
+    //Getters for the fields of "First Name", "Last Name" and "Phone Number"
     public String getFirstName() {
         return firstName;
-    }
-
-    public void setFirstName(String firstName) {
-        this.firstName = firstName;
     }
 
     public String getLastName() {
         return lastName;
     }
 
-    public void setLastName(String lastName) {
-        this.lastName = lastName;
-    }
-
     public String getPhoneNumber() {
         return phoneNumber;
     }
 
-    public void setPhoneNumber(String phoneNumber) {
-        this.phoneNumber = phoneNumber;
-    }
-
-    public boolean matchByPhoneNumber(String query){
+    //Method to match the name entered by a query for the user
+    public boolean matchByName(String query){
         this.query = query.split(" ");
         if(this.query.length == 2 ){
             return this.firstName.contains(this.query[0]) && this.lastName.contains(this.query[1]) ;
@@ -58,14 +39,18 @@ public abstract class Contact {
         }
     }
 
-    public boolean searchByPhone(String query){
+    //Method to match the phone number entered by a query for the user
+    public boolean matchByPhone(String query){
         return this.phoneNumber.contains(query);
     }
 
+    //Method abstract to show the data into a String
     public abstract String toString();
 
+    //Method to show the data into a CSV
     public abstract String toCSV();
 
+    //Override for the method equals to compare two objects by his first name, last name and phone number
     @Override
     public boolean equals(Object o) {
         if (this == o) {

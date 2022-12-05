@@ -1,2 +1,11 @@
 *,Theresa,May,555 555 5575
-$,Maria,Fernanda,0998870364,Contfi Asesores
+$,Katha,Benavides,0979254702,Abarrotes Benavides
+*,Frank,Pemaste,090239423
+-,Angel,Herrera,099329423
+*,Lilia,Jimenez,090239402
+-,Alejandro ,Herrera,0999814271
+*,Marina ,Pilco,0920349234
+$,Irma,Moreno,096858444,La hueca de la Morenito
+-,Patricio,Jimenez,0920394823
+-,Pedro,Salazar,09283423
+-,Zhu,Erick,0987665467

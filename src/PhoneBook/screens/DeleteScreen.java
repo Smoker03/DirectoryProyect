@@ -4,6 +4,7 @@ import PhoneBook.Directory;
 
 import javax.swing.*;
 import java.util.List;
+import java.util.stream.Collectors;
 
 public class DeleteScreen {
     private Directory directory;
@@ -12,16 +13,14 @@ public class DeleteScreen {
         this.directory = directory;
     }
 
-    public void render() {
+    public void renderDeletContacts() {
         System.out.println("Deleting contacts");
         System.out.println();
         String deleteOtherContact;
 
-        String deletedData = JOptionPane.showInputDialog(null, "Desea eliminar algun contacto?");
-        if (List.of("y", "Y", "yes", "Yes").contains(deletedData)) {
-
             do {
-                var query = JOptionPane.showInputDialog(null, "Ingrese el contacto que desea eliminar: ");
+                var query = JOptionPane.showInputDialog(null, "Ingrese el contacto que desea eliminar: \n" + this.directory.getContacts().stream().map(contact -> contact.toString() + "\n")
+                        .collect(Collectors.joining()));
                 var contacts = this.directory.searchContactsByName(query);
 
                 for (var contact : contacts) {
@@ -30,6 +29,8 @@ public class DeleteScreen {
 
                 deleteOtherContact = JOptionPane.showInputDialog(null, "Desea eliminar otro contacto?");
             } while (List.of("y", "Y", "yes", "Yes").contains(deleteOtherContact));
-        }
+        //Show the data after deleting the contact
+        JOptionPane.showMessageDialog(null, this.directory.getContacts().stream().map(contact -> contact.toString() + "\n")
+                .collect(Collectors.joining()), "Contactos del directorio despues de borrar el contacto ingresado:", 1, null);
     }
 }

@@ -49,12 +49,12 @@ public abstract class Contact {
         this.phoneNumber = phoneNumber;
     }
 
-    public boolean matchByName(String query){
+    public boolean matchByPhoneNumber(String query){
         this.query = query.split(" ");
         if(this.query.length == 2 ){
-            return this.firstName.equals(this.query[0]) && this.lastName.equals(this.query[1]);
+            return this.firstName.contains(this.query[0]) && this.lastName.contains(this.query[1]) ;
         }else{
-            return this.firstName.equals(this.query[0]);
+            return this.firstName.contains(this.query[0]);
         }
     }
 

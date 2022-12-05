@@ -21,7 +21,7 @@ public class Directory{
     public List<Contact> searchContactsByName(String query) {
         var found = new ArrayList<Contact>();
         for (var contact : contacts) {
-            if (contact.matchByName(query)) {
+            if (contact.matchByPhoneNumber(query)) {
                 found.add(contact);
             }
         }

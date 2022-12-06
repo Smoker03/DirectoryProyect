@@ -7,7 +7,7 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 public class DeleteScreen {
-    private Directory directory;
+    private final Directory directory;
 
     public DeleteScreen(Directory directory) {
         this.directory = directory;
@@ -28,6 +28,6 @@ public class DeleteScreen {
             deleteOtherContact = JOptionPane.showInputDialog(null, "Desea eliminar otro contacto?");
         } while (List.of("y", "Y", "yes", "Yes").contains(deleteOtherContact));
         //Show the data after deleting the contact
-        JOptionPane.showMessageDialog(null, this.directory.getContacts().stream().map(contact -> contact.toString() + "\n").collect(Collectors.joining()), "Contactos del directorio despues de borrar el contacto ingresado:", 1, null);
+        JOptionPane.showMessageDialog(null, this.directory.getContacts().stream().map(contact -> contact.toString() + "\n").collect(Collectors.joining()), "Contactos del directorio despues de borrar el contacto ingresado:", JOptionPane.INFORMATION_MESSAGE, null);
     }
 }

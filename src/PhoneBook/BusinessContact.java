@@ -13,14 +13,6 @@ public class BusinessContact extends Contact {
         this.businessName = businessName;
     }
 
-    public String getBusinessName() {
-        return businessName;
-    }
-
-    public void setBusinessName(String businessName) {
-        this.businessName = businessName;
-    }
-
     @Override
     public String toString() {
         return "$" + " Nombre = " + firstName + " | Apellido = " + lastName + " | Numero = " + phoneNumber + " | Negocio = " + businessName;

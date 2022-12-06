@@ -6,8 +6,8 @@ import java.io.IOException;
 import java.util.stream.Collectors;
 
 public class DirectoryWriter {
-    private Directory directory;
-    private String path;
+    private final Directory directory;
+    private final String path;
 
     public DirectoryWriter(Directory directory, String path) {
         this.directory = directory;

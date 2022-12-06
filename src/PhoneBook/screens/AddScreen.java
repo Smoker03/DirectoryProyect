@@ -58,6 +58,6 @@ public class AddScreen {
         }
         //Show the contacts stored in the ArrayList
         JOptionPane.showMessageDialog(null, "Contacto añadido al directorio: \n" + this.directory.getContacts().stream().map(contact -> contact.toString() + "\n")
-                .collect(Collectors.joining()), "Contactos del directorio:", 1, null);
+                .collect(Collectors.joining()), "Contactos del directorio:", JOptionPane.INFORMATION_MESSAGE, null);
     }
 }

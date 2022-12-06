@@ -7,7 +7,7 @@ import java.util.stream.Collectors;
 
 public class SearchScreen {
 
-    private Directory directory;
+    private final Directory directory;
 
     public SearchScreen(Directory directory){
         this.directory = directory;

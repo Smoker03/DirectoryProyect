@@ -6,7 +6,7 @@ import java.nio.file.Path;
 import java.util.stream.Collectors;
 
 public class DirectoryReader {
-    private Path path;
+    private final Path path;
 
     public DirectoryReader(String path) {
         this.path = Path.of(path);

@@ -1,7 +1,7 @@
 package PhoneBook;
 
 public class ContactParser {
-    private String[] rawContact;
+    private final String[] rawContact;
 
     public ContactParser(String rawContact) {
         this.rawContact = rawContact.split(",");

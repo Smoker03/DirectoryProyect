@@ -4,8 +4,7 @@ $,Katha,Benavides,0979254702,Abarrotes Benavides
 -,Alejandro ,Herrera,0999814271
 $,Irma,Moreno,096858444,La hueca de la Morenito
 -,Patricio,Jimenez,0920394823
--,Pedro,Salazar,09283423
 -,Zhu,Erick,0987665467
 $,Maria,Moreno,0998870364,Contfi Asesores
 $,Carla,Ramirez,0984574691,Delicias al paso
--,Pedro,Vargas,098741654
+*,Javier,Pilco,0987586954

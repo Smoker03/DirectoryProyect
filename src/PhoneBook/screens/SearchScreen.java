@@ -5,15 +5,14 @@ import PhoneBook.Directory;
 import javax.swing.*;
 import java.util.stream.Collectors;
 
-public class SearchScreen {
+public class SearchScreen extends Screen{
 
-    private final Directory directory;
-
-    public SearchScreen(Directory directory){
-        this.directory = directory;
+    public SearchScreen(Directory phoneDirectory){
+        super(phoneDirectory);
     }
 
-    public void renderSearch(){
+    @Override
+    public void Render(){
 
         String[] search = new String[2];
         search[0] = "Nombre";
@@ -23,9 +22,9 @@ public class SearchScreen {
         switch (searchOption){
             case "Nombre" -> {
                 //Search contact by name
-                String searchName = JOptionPane.showInputDialog(null, "Inngrese el nombre que desea buscar \n" + this.directory.getContacts().stream().map(contact -> contact.toString() + "\n")
+                String searchName = JOptionPane.showInputDialog(null, "Inngrese el nombre que desea buscar \n" + this.phoneDirectory.getContacts().stream().map(contact -> contact.toString() + "\n")
                         .collect(Collectors.joining()));
-                var searchContacts = this.directory.searchContactsByName(searchName);
+                var searchContacts = this.phoneDirectory.searchContactsByName(searchName);
                 if (searchContacts.size() == 0) {
                     //List of searchContacts is empty
                     JOptionPane.showMessageDialog(null,"Contacto no encontrado");
@@ -36,9 +35,9 @@ public class SearchScreen {
             }
             case "Numero" -> {
                     //Search contact by phone number
-                    String searchPhoneNumber = JOptionPane.showInputDialog(null, "Inngrese el numero que desea buscar \n" + this.directory.getContacts().stream().map(contact -> contact.toString() + "\n")
+                    String searchPhoneNumber = JOptionPane.showInputDialog(null, "Inngrese el numero que desea buscar \n" + this.phoneDirectory.getContacts().stream().map(contact -> contact.toString() + "\n")
                             .collect(Collectors.joining()));
-                    var searchContacts = this.directory.searchContactsByPhoneNumber(searchPhoneNumber);
+                    var searchContacts = this.phoneDirectory.searchContactsByPhoneNumber(searchPhoneNumber);
                     if (searchContacts.size() == 0) {
                         //List of searchContacts is empty
                         JOptionPane.showMessageDialog(null,"Contacto no encontrado");
